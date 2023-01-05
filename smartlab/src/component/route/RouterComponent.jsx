@@ -1,19 +1,20 @@
 import React from 'react'
-import {BrowseR, Route, Switch}
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import UserListComponent from '../user/UserListComponent'
+import AddUserComponent from '../user/AddUserComponent'
+import EditUserComponent from '../user/EditUserComponent'
 
-const AppRouter = () => {
+const AppRouter =() => {
   return (
     <div>
-    <BrowserRouter>
     <div style={style}>
-    <Switch>
-    <Route exact path="/" component={UserListComponent} />
-    <Route path="/users" component={UserListComponent} />
-    <Route path="/add-user" component={AddListComponent} />
-    <Route path="/edit-user" component={EditListComponent} />
-    </Switch>
+    <Routes>
+    <Route path="/" element={<UserListComponent/>} />
+    <Route path="/users" element={<UserListComponent/>} />
+    <Route path="/add-user" element={<AddUserComponent/>} />
+    <Route path="/edit-user" element={<EditUserComponent/>} />
+    </Routes>
     </div>
-    </BrowserRouter>
     </div>
   )
 }
@@ -23,4 +24,4 @@ const style = {
     margin: '10px'
 }
 
-export default AppRouter
+export default AppRouter;
