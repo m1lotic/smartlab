@@ -6,7 +6,7 @@ import EditUserComponent from '../user/EditUserComponent'
 
 const AppRouter =() => {
   return (
-    <div>
+   
     <div style={style}>
     <Routes>
     <Route path="/" element={<UserListComponent/>} />
@@ -14,7 +14,6 @@ const AppRouter =() => {
     <Route path="/add-user" element={<AddUserComponent/>} />
     <Route path="/edit-user" element={<EditUserComponent/>} />
     </Routes>
-    </div>
     </div>
   )
 }
