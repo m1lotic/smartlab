@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  
 import com.smartlab.boardlist.mapper.UserMapper;
 import com.smartlab.boardlist.vo.UserVO;
- 
-@CrossOrigin(origins = "*", maxAge = 3600)
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -25,8 +24,8 @@ public class UserController {
     
     @GetMapping
     public List<UserVO> userList(){
-        System.out.println(userMapper.userList());
-        System.out.println("유저리스트 출력 성공");
+        // System.out.println(userMapper.userList());
+        // System.out.println("유저리스트 출력 성공");
         return userMapper.userList();
     }
     

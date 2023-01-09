@@ -2,19 +2,19 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.example.demo.mapper.UserMapper">
+  <mapper namespace="com.smartlab.boardlist.mapper.UserMapper">
   
-      <insert id="insertUser" parameterType="com.example.demo.vo.UserVO">
+      <insert id="insertUser" parameterType="com.smartlab.boardlist.vo.UserVO">
           INSERT INTO users(username, password, firstName, lastName, age, salary)
           VALUES(#{username}, #{password}, #{firstName}, #{lastName}, #{age}, #{salary})
       </insert>
   
-     <select id="userList" resultType="com.example.demo.vo.UserVO">
+     <select id="userList" resultType="com.smartlab.boardlist.vo.UserVO">
          SELECT * FROM users
          ORDER BY id
      </select>
      
-     <select id="fetchUserByID" resultType="com.example.demo.vo.UserVO"
+     <select id="fetchUserByID" resultType="com.smartlab.boardlist.vo.UserVO"
       parameterType="int">
          SELECT * FROM users
          WHERE id = #{id}
@@ -25,7 +25,7 @@
          WHERE id = #{id}
      </delete>
      
-     <update id="updateUser" parameterType="com.example.demo.vo.UserVO">
+     <update id="updateUser" parameterType="com.smartlab.boardlist.vo.UserVO">
          UPDATE users
          SET firstName = #{firstName}, lastName = #{lastName}, age = #{age}, salary = #{salary} 
          WHERE id = #{id}
