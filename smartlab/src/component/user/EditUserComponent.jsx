@@ -66,6 +66,7 @@ class EditUserComponent extends Component {
           message: user.lastName + '님 정보가 수정되었습니다.'
         })
         this.props.history.push('/users');
+        //v5 / v6부터는 navigate 사용
       })
       .catch(err => {
         console.log('saveUser() 에러', err);
