@@ -66,7 +66,7 @@ public class FileBoardController {
   @RequestMapping("/delete/{b_no}")
   private String fileBoardDelete(@PathVariable("b_no") int b_no) {
     fboardService.fileBoardDelete(b_no);
-    return "redirect:/fileBoard/list";
+    return "redirect:fileBoard/list";
   }
   
 }
