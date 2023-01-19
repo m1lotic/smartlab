@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.smartlab.boardlist.vo.FileBoardVO;
+import com.smartlab.boardlist.vo.FileVO;
 
 @Mapper
 public interface FileBoardMapper {
@@ -14,5 +15,8 @@ public interface FileBoardMapper {
   int fileBoardInsert(FileBoardVO fileBoard); //게시글 생성
   int fileBoardUpdate(FileBoardVO fileBoard); //게시글 수정
   int fileBoardDelete(int bno); //게시글 삭제
+  //파일 업로드 및 다운로드 메서드 추가
+  int fileInsert(FileVO file);
+  FileVO fileDetail(int b_no);
   
 }
