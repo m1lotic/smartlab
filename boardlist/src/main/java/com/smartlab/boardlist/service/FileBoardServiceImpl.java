@@ -14,7 +14,7 @@ public class FileBoardServiceImpl implements FileBoardService {
 
   @Autowired
   FileBoardMapper fileboardmapper;
-  
+
   @Override
   public List<FileBoardVO> getFileBoardList() {
     return fileboardmapper.getFileBoardList();
@@ -41,18 +41,18 @@ public class FileBoardServiceImpl implements FileBoardService {
   }
 
   @Override
-  public String fileSelect(int bno){
+  public String fileSelect(int bno) {
     return fileboardmapper.fileSelect(bno);
   }
 
-    //파일 업로드 추가
-    @Override
-    public int fileInsert(FileVO file) {
-      return fileboardmapper.fileInsert(file);
-    }
+  // 파일 업로드 추가
+  @Override
+  public int fileInsert(FileVO file) {
+    return fileboardmapper.fileInsert(file);
+  }
 
-    @Override
-    public FileVO fileDetail(int b_no) {
-      return fileboardmapper.fileDetail(b_no);
-    }
+  @Override
+  public FileVO fileDetail(int b_no) {
+    return fileboardmapper.fileDetail(b_no);
+  }
 }
