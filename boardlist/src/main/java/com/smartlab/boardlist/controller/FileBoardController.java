@@ -65,7 +65,9 @@ public class FileBoardController {
         File destinationFile; // DB에 저장할 파일 고유명
         String destinationFileName;
         //절대경로 설정 안해주면 지 맘대로 들어가버려서 절대경로 박아주었습니다.
-        String fileUrl = "업로드한 파일을 저장할 절대경로를 넣어주세요";
+        
+         String fileUrl = "C:/Users/SMHRD/Downloads/";
+
   
         do { //우선 실행 후
           //고유명 생성
@@ -90,6 +92,12 @@ public class FileBoardController {
       return "forward:/fileBoard/list"; //객체 재사용
     }
   
+    @RequestMapping("/fileDelete")
+    private String fileDelete(@ModelAttribute FileBoardVO board) {
+      System.out.println(board);
+      return "a";
+    }
+
   @RequestMapping("/update/{b_no}")
   private String fileBoardUpdateForm(@PathVariable("b_no") int b_no, Model model) {
     model.addAttribute("detail", fboardService.fileBoardDetail(b_no));
@@ -105,7 +113,7 @@ public class FileBoardController {
     return "redirect:/fileBoard/detail/"+b_no;
   }
   
-  @RequestMapping("/delete/{b_no}")
+  @RequestMapping("/detail/{b_no}")
   private String fileBoardDetail(@PathVariable("b_no") int b_no, Model model) {
     model.addAttribute("detail", fboardService.fileBoardDetail(b_no));
     
@@ -115,7 +123,19 @@ public class FileBoardController {
       model.addAttribute("file", fboardService.fileDetail(b_no));
       return "fileBoard/detail";
     }
- 
+  }
+
+  @RequestMapping("/delete/{b_no}")
+  private String fileBoardDelete(@PathVariable("b_no") int b_no) {
+    fboardService.fileBoardDelete(b_no);
+    return "redirect:/fileBoard/list";
+  }
+
+  @RequestMapping("/fileSelect/{b_no}")
+  private void fileSelect(@PathVariable("b_no") int b_no){
+
+    String fileName = fboardService.fileSelect(b_no);
+
   }
 
   @RequestMapping("/fileDown/{b_no}")
@@ -195,5 +215,5 @@ new String(originFileName.getBytes("UTF-8"), "ISO8859_1") + "\"");
     }
     
   }
-  
 }
+  

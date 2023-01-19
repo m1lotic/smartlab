@@ -31,5 +31,24 @@
   <delete id="fileBoardDelete" parameterType="int">
     DELETE FROM file_board WHERE b_no=#{b_no}
   </delete>
+
+  <!-- 파일 업로드 및 다운로드 관련 추가 -->
+  <insert id="fileInsert" parameterType="com.smartlab.boardlist.vo.FileVO">
+    <selectKey keyProperty="b_no" resultType="int" order="BEFORE">
+      SELECT MAX(b_no)
+      FROM file_board
+    </selectKey>
+    
+    INSERT INTO file(b_no, filename, fileoriginname, fileurl) 
+    VALUES(#{b_no}, #{filename}, #{fileoriginname}, #{fileurl})
+  </insert>
   
+  <select id="fileDetail" parameterType="int" resultType="com.smartlab.boardlist.vo.FileVO">
+    SELECT * FROM file WHERE b_no=#{b_no}
+  </select>
+  
+  <select id="fileSelect" parameterType="int" resultType="String">
+    select fileoriginname from b_no=#{b_no} 
+  </select>
+
 </mapper>

@@ -29,6 +29,9 @@ th:value="${detail.writer}" disabled="disabled">
 [[${detail.content}]]
   </textarea>
           </div>
+          <div>
+            <input type="file" name="files">
+          </div>
           <div style="text-align: right;">
             <input type="hidden" name="b_no" th:value="${detail.b_no}">
             <input type="submit" th:value="목록" th:formaction="@{/fileBoard/list}">

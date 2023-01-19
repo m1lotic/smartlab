@@ -15,6 +15,8 @@ public interface FileBoardMapper {
   int fileBoardInsert(FileBoardVO fileBoard); //게시글 생성
   int fileBoardUpdate(FileBoardVO fileBoard); //게시글 수정
   int fileBoardDelete(int bno); //게시글 삭제
+  String fileSelect(int bno); //파일 조회
+  
   //파일 업로드 및 다운로드 메서드 추가
   int fileInsert(FileVO file);
   FileVO fileDetail(int b_no);

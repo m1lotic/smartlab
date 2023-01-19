@@ -33,7 +33,12 @@ th:action="@{/fileBoard/list}" method="post">
             </div>  
             <div>
               <label style="font-weight: bolder;">첨부파일</label>
-            </div>  
+              <p>
+                <a th:if="${file}" th:href="@{/fileBoard/fileDown/{bno}(bno=${file.b_no})}"
+                 >[[${file.fileoriginname}]]</a>
+              </p>
+              <!--/* 잘 찍히나 확인 => <br>[[${file.b_no}]] */-->
+            </div>    
             <div>
               <label for="" style="font-weight: bolder;">내용</label>
               <p th:text="${detail.content}"></p>
